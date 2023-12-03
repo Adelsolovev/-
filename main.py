@@ -2,6 +2,10 @@ def find_most_frequent_and_longest_word(text):
     # Разделение текста на слова
     words = text.split()
 
+    # Проверка наличия слов
+    if len(words) == 0:
+        return None, None
+
     # Создание словаря для подсчета встречаемости слов
     word_counts = {}
     for word in words:
@@ -19,12 +23,13 @@ def find_most_frequent_and_longest_word(text):
     return most_frequent_word, longest_word
 
 
-# Ввод текста от пользователя
+# Пример использования функции
 text = input("Введите текст: ")
-
-# Поиск наиболее часто встречаемого слова и самого длинного слова
 most_frequent_word, longest_word = find_most_frequent_and_longest_word(text)
 
 # Вывод результатов
-print("Наиболее часто встречаемое слово:", most_frequent_word)
-print("Самое длинное слово:", longest_word)
+if most_frequent_word is not None and longest_word is not None:
+    print("Наиболее часто встречающееся слово:", most_frequent_word)
+    print("Самое длинное слово:", longest_word)
+else:
+    print("Текст не содержит слов.")
